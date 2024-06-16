@@ -31,9 +31,15 @@ class ImageTokenizer(nn.Module):
                  fp16=True,
                  **kwargs):
         super().__init__()
-        from .seed_qformer.qformer_quantizer import Blip2QformerQuantizer
+        # change w/wo quantizer
+        # from .seed_qformer.qformer_quantizer import Blip2QformerQuantizer
 
-        model = Blip2QformerQuantizer.from_pretrained(pretrained_model_path=model_path,
+        # model = Blip2QformerQuantizer.from_pretrained(pretrained_model_path=model_path,
+        #                                               vit_precision='fp16' if fp16 else 'fp32',
+        #                                               **kwargs).eval()
+        from .seed_qformer.qformer_quantizer import Blip2QformerWoQuantizer
+
+        model = Blip2QformerWoQuantizer.from_pretrained(pretrained_model_path=model_path,
                                                       vit_precision='fp16' if fp16 else 'fp32',
                                                       **kwargs).eval()
         if diffusion_model_path is not None and load_diffusion:

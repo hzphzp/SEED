@@ -10,6 +10,13 @@
             "request": "launch",  
             "program": "${workspaceFolder}/scripts/seed_tokenizer_inference.py",  
             "console": "integratedTerminal"  
-        }  
+        },  
+        {  
+            "name": "Python: Run seed_tokenizer_inference_wo_quant",  
+            "type": "python",  
+            "request": "launch",  
+            "program": "${workspaceFolder}/scripts/seed_tokenizer_inference_wo_quant.py",  
+            "console": "integratedTerminal"  
+        },
     ]  
 }  
